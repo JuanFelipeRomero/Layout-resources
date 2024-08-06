@@ -1,44 +1,44 @@
 export function SideBar() {
    return (
-      <nav className="w-1/5">
+      <nav className="w-1/5 ml-[4%]">
          <ul className="grid gap-4">
             <li>
-               <a href="" className="categoryTitle">
+               <button href="" className="categoryTitle">
                   Principal
-               </a>
+               </button>
             </li>
             <li>
-               <a href="" className="categoryTitle">
+               <button href="" className="categoryTitle">
                   Categorias
-               </a>
+               </button>
                <ul className="pl-4">
                   <li className="subCategory">
-                     <a href="">Colores</a>
+                     <button>Colores</button>
                   </li>
                   <li className="subCategory">
-                     <a href="">Gradientes</a>
+                     <button>Gradientes</button>
                   </li>
                   <li className="subCategory">
-                     <a href="">Imagenes</a>
+                     <button>Imagenes</button>
                   </li>
                   <li className="subCategory">
-                     <a href="">Iconos</a>
+                     <button>Iconos</button>
                   </li>
                   <li className="subCategory">
-                     <a href="">Plantillas</a>
+                     <button>Plantillas</button>
                   </li>
                   <li className="subCategory">
-                     <a href="">Fuentes</a>
+                     <button>Fuentes</button>
                   </li>
                   <li className="subCategory">
-                     <a href="">Otros</a>
+                     <button>Otros</button>
                   </li>
                </ul>
             </li>
             <li>
-               <a href="" className="categoryTitle">
+               <button href="" className="categoryTitle">
                   Favoritos
-               </a>
+               </button>
             </li>
          </ul>
       </nav>
