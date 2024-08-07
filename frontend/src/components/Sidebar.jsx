@@ -1,7 +1,9 @@
+import './sideBar.css';
+
 export function SideBar() {
    return (
-      <nav className="w-1/5 ml-[4%]">
-         <ul className="grid gap-4">
+      <nav className="lg:w-1/5 lg:ml-[4%]">
+         <ul className="phone:flex gap-4 lg:grid">
             <li>
                <button href="" className="categoryTitle">
                   Principal
@@ -11,7 +13,8 @@ export function SideBar() {
                <button href="" className="categoryTitle">
                   Categorias
                </button>
-               <ul className="pl-4">
+
+               <ul className="pl-4 phone:hidden lg:block">
                   <li className="subCategory">
                      <button>Colores</button>
                   </li>

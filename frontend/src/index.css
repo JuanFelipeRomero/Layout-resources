@@ -28,7 +28,7 @@ body {
 
 @layer components {
    .categoryTitle {
-      @apply text-[28px] font-semibold mt-3 hover:text-[#00A3FF];
+      @apply sm:text-xl lg:text-2xl xl:text-3xl font-semibold mt-3 hover:text-lightBlue;
    }
 
    .subCategory {

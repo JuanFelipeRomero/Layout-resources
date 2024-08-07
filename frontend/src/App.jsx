@@ -7,7 +7,7 @@ function App() {
    return (
       <>
          <Header />
-         <main className="flex mt-20">
+         <main className="flex phone:flex-col phone:items-center phone:mt-6 lg:flex-row lg:mt-20 lg:items-start">
             <SideBar />
             <section className="w-4/5">
                <ContentHeader />
