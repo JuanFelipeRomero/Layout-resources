@@ -1,0 +1,8 @@
+###Basic
+GET http://localhost:1234
+
+###All resources
+GET http://localhost:1234/resources
+
+### Colors resources
+GET http://localhost:1234/resources/?category=colores

@@ -1,4 +1,5 @@
 const { default: mongoose } = require('mongoose');
+//const connectDatabase = require('../config/db');
 const { model, Schema } = require('mongoose');
 const resourceSchema = new Schema({
   name: {
@@ -16,12 +17,12 @@ const resourceSchema = new Schema({
     type: String,
     required: true,
     enum: [
-      'Colores',
-      'Gradientes',
-      'Imagenes',
-      'Iconos',
-      'Plantillas',
-      'Fuentes',
+      'colores',
+      'gradientes',
+      'imagenes',
+      'iconos',
+      'plantillas',
+      'fuentes',
       'varios',
     ],
     default: 'varios',
@@ -40,7 +41,7 @@ const resourceSchema = new Schema({
   likesCount: {
     type: Number,
     min: 0,
-    desfault: 0,
+    default: 0,
   },
 });
 
@@ -52,7 +53,7 @@ module.exports = Resource;
 const resource = new Resource({
   name: 'Coolors',
   description: 'Pagina que genera paletas de colores',
-  category: 'Colores',
+  category: 'colores',
   image: 'https://www.evernote.design/assets/images/coolors.jpg',
   url: 'https://coolors.co/',
 });
@@ -69,7 +70,8 @@ resource
   .catch((err) => {
     console.error(err);
   });
-
+*/
+/*
 
 //Buscar datos de un modelo
 Resource.find({}).then((result) => {
