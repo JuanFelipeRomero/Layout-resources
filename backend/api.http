@@ -18,3 +18,12 @@ Content-Type: application/json
    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFjiYSo0RsI5DMTu-OgKc0uYvBBhipio6Cuw&s",
    "url": "https://webgradients.com/"
 }
+
+### PATCH Update resource by id
+PATCH http://localhost:1234/resources/66c129fa222c34701b49c2c2
+Content-Type: application/json
+
+{
+  "description": "una herramienta en línea para crear y explorar paletas de colores. Ideal para diseñadores que buscan combinaciones de colores rápidas y efectivas"
+}
+

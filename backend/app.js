@@ -43,7 +43,7 @@ app.get('/resources', (req, res) => {
 
 //POST ---------------------------------------------------------------------
 app.post('/resources', (req, res) => {
-  const resultValidation = validateResource(req.body);
+  const resultValidation = validateResource(req.body); //Validar req con schema zod
 
   if (resultValidation.error) {
     return res
@@ -52,6 +52,7 @@ app.post('/resources', (req, res) => {
   }
 
   const newResource = new Resource({
+    //nueva instancia del modelo Resource
     ...resultValidation.data,
   });
 
@@ -66,7 +67,25 @@ app.post('/resources', (req, res) => {
 });
 
 //PATCH -------------------------------------------------------------------
+app.patch('/resources/:queryId', (req, res) => {
+  const { queryId } = req.params;
+  const updates = req.body;
 
+  Resource.findByIdAndUpdate(queryId, updates, {
+    new: true, //Devuelve el documento actualizado en lugar del documento original.
+    runValidators: true, //Ejecuta las validaciones del esquema durante la actualización
+  })
+    .then((updatedResource) => {
+      if (!updatedResource) {
+        return res.status(404).json({ error: 'Resource not found' });
+      }
+      res.status(200).json(updatedResource);
+    })
+    .catch((err) => {
+      console.error('Error updating resource:', err.message);
+      res.status(500).json({ error: 'Error updating resource' });
+    });
+});
 //LISTEN -------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log('Running server on port ' + PORT);
