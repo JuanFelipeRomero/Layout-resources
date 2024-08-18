@@ -27,3 +27,5 @@ Content-Type: application/json
   "description": "una herramienta en línea para crear y explorar paletas de colores. Ideal para diseñadores que buscan combinaciones de colores rápidas y efectivas"
 }
 
+### DELETE resource by id
+DELETE http://localhost:1234/resources/66c17b64c795338804c3f91d

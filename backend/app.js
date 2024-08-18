@@ -86,6 +86,22 @@ app.patch('/resources/:queryId', (req, res) => {
       res.status(500).json({ error: 'Error updating resource' });
     });
 });
+
+//DELETE
+app.delete('/resources/:queryId', (req, res) => {
+  const { queryId } = req.params;
+  Resource.findByIdAndDelete(queryId)
+    .then((deletedResource) => {
+      if (!deletedResource)
+        return res.status(404).json({ error: 'Resource not found' });
+
+      res.json({ message: 'Resources deleted' });
+    })
+    .catch((err) => {
+      console.error('Error al eliminar recurso: ' + err);
+    });
+});
+
 //LISTEN -------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log('Running server on port ' + PORT);
