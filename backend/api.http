@@ -1,8 +1,20 @@
 ###Basic
 GET http://localhost:1234
 
-###All resources
+### GET All resources
 GET http://localhost:1234/resources
 
-### Colors resources
+### GET Colors resources
 GET http://localhost:1234/resources/?category=colores
+
+### POST New resource
+POST http://localhost:1234/resources
+Content-Type: application/json
+
+{
+   "name": "webGradients",
+   "description" : "Aqui puedes tomar una utilizar una gran variedad de gradiente, o crearlos tu mismo!",
+   "category": "gradientes",
+   "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFjiYSo0RsI5DMTu-OgKc0uYvBBhipio6Cuw&s",
+   "url": "https://webgradients.com/"
+}

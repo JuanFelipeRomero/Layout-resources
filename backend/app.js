@@ -1,11 +1,17 @@
+//MongoDB
 const mongoose = require('mongoose');
 const connectDatabase = require('./config/db');
-const Resource = require('./models/Resource');
+const Resource = require('./models/Resource'); //Model
+
+//varios
+const validateResource = require('./schemes/resourcesSh');
 
 const express = require('express');
 
 const PORT = process.env.PORT;
 const app = express();
+app.use(express.json());
+app.disable('x-powered-by');
 
 connectDatabase();
 
@@ -36,7 +42,30 @@ app.get('/resources', (req, res) => {
 });
 
 //POST ---------------------------------------------------------------------
-app.get('/resources', (req, res) => {});
+app.post('/resources', (req, res) => {
+  const resultValidation = validateResource(req.body);
+
+  if (resultValidation.error) {
+    return res
+      .status(400)
+      .json({ error: JSON.parse(resultValidation.error.message) }); //400 BAD REQUEST
+  }
+
+  const newResource = new Resource({
+    ...resultValidation.data,
+  });
+
+  newResource
+    .save()
+    .then((savedResource) => {
+      res.status(201).json(savedResource);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: 'Error saving resource' }); // 500 INTERNAL SERVER ERROR
+    });
+});
+
+//PATCH -------------------------------------------------------------------
 
 //LISTEN -------------------------------------------------------------------
 app.listen(PORT, () => {

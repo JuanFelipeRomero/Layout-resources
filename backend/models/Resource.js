@@ -1,7 +1,12 @@
 const { default: mongoose } = require('mongoose');
 //const connectDatabase = require('../config/db');
 const { model, Schema } = require('mongoose');
-const resourceSchema = new Schema({
+
+function randomId() {
+  return crypto.randomUUID();
+}
+
+const ResourceSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -45,8 +50,9 @@ const resourceSchema = new Schema({
   },
 });
 
-//Eliminar el _id y el __v transformando el schema
-resourceSchema.set('toJSON', {
+//Eliminar el _id y el __v PARA CONSULTAR
+// NO SE MUTA EL DE LA BASE DE DATOS
+ResourceSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
@@ -54,7 +60,7 @@ resourceSchema.set('toJSON', {
   },
 });
 
-const Resource = model('Resource', resourceSchema);
+const Resource = model('Resource', ResourceSchema);
 
 module.exports = Resource;
 
