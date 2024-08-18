@@ -45,6 +45,15 @@ const resourceSchema = new Schema({
   },
 });
 
+//Eliminar el _id y el __v transformando el schema
+resourceSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id;
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
+
 const Resource = model('Resource', resourceSchema);
 
 module.exports = Resource;

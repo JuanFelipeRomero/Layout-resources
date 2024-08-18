@@ -4,7 +4,7 @@ const Resource = require('./models/Resource');
 
 const express = require('express');
 
-const PORT = process.env.PORT ?? 1234;
+const PORT = process.env.PORT;
 const app = express();
 
 connectDatabase();
@@ -36,6 +36,7 @@ app.get('/resources', (req, res) => {
 });
 
 //POST ---------------------------------------------------------------------
+app.get('/resources', (req, res) => {});
 
 //LISTEN -------------------------------------------------------------------
 app.listen(PORT, () => {
