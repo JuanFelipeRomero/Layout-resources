@@ -1,44 +1,40 @@
 @media (min-width: 300px) and (max-width: 1024px) {
-   nav {
-      position: relative;
-   }
+  nav {
+    position: relative;
+  }
 
-   .subCategory {
-      list-style: none;
-   }
+  .subCategory {
+    list-style: none;
+  }
 
-   .subCategory button {
-      width: 100%;
-      text-align: center;
-      padding: 8px 16px;
-      background-color: white;
-      color: #101a22;
-      border: none;
-      cursor: pointer;
-      display: block;
-      width: 85%;
-      font-size: medium;
-   }
+  .subCategory button {
+    width: 100%;
+    text-align: center;
+    padding: 8px 16px;
+    background-color: white;
+    color: #101a22;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 85%;
+    font-size: medium;
+  }
 
-   .subCategory button:hover {
-      background-color: #f0f0f0;
-   }
+  .subCategory button:hover {
+    background-color: #f0f0f0;
+  }
 
-   ul ul {
-      position: absolute;
-      left: 50%;
-      top: 100%;
-      transform: translate(-50%);
-      background-color: white;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      display: none;
-      margin-top: 10px;
-      padding: 10px 0;
-      border-radius: 5px;
-      min-width: 50px;
-   }
-
-   li:hover > ul {
-      display: block;
-   }
+  ul ul {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%);
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: none;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+    min-width: 50px;
+  }
 }
