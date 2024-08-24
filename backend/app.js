@@ -12,6 +12,12 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.disable('x-powered-by');
+const ACCEPTED_ORIGINS = [
+  'http://localhost:5173',
+  'http://localhost:1234',
+  'http://localhost:3000',
+  'https://layres.com',
+];
 
 connectDatabase();
 
@@ -20,9 +26,22 @@ app.get('/', (req, res) => {
 });
 //GET ----------------------------------------------------------------------
 app.get('/resources', (req, res) => {
+  // Ejemplo /resources/?category=colores
+  const origin = req.header('origin'); //recuperar el dominio origen
+  if (ACCEPTED_ORIGINS.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  }
+
   let category = req.query.category;
   console.log(category);
   if (category) {
+    if (category === 'all') {
+      Resource.find({}).then((resources) => {
+        res.json(resources);
+      });
+      return;
+    }
+
     const queryCategory = new RegExp(`^${category}$`, 'i'); //Regex para que se convertirlo a minuscula
 
     Resource.find({ category: queryCategory })

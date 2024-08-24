@@ -2,7 +2,7 @@ const z = require('zod');
 
 const resourceSchema = z.object({
   name: z.string(),
-  description: z.string(),
+  description: z.string().max(80),
   category: z.enum([
     'colores',
     'gradientes',

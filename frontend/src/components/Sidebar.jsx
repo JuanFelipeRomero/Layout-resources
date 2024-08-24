@@ -20,11 +20,7 @@ export function SideBar() {
     <nav className="lg:w-1/5 lg:ml-[4%]">
       <ul className="phone:flex gap-4 lg:grid">
         <li>
-          <button
-            className="categoryTitle"
-            onClick={handleClick}
-            value={'principal'}
-          >
+          <button className="categoryTitle" value={'all'} onClick={handleClick}>
             Principal
           </button>
         </li>
@@ -75,9 +71,7 @@ export function SideBar() {
           )}
         </li>
         <li>
-          <button href="" className="categoryTitle">
-            Favoritos
-          </button>
+          <button className="categoryTitle">Favoritos</button>
         </li>
       </ul>
     </nav>

@@ -4,7 +4,7 @@ import { createContext } from 'react';
 export const Context = createContext();
 
 export function ContextProvider({ children }) {
-  const [category, setCategory] = useState('Main');
+  const [category, setCategory] = useState('all');
 
   return (
     <Context.Provider value={{ category, setCategory }}>
