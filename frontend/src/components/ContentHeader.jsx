@@ -1,8 +1,10 @@
 import { FiltersContext } from '../../contexts/Filters';
+import { CategoriesContext } from '../../contexts/Categories';
 import { useContext } from 'react';
 
 export function ContentHeader() {
   const { setFilter } = useContext(FiltersContext);
+  const { category } = useContext(CategoriesContext);
 
   const handleSelect = (event) => {
     setFilter(event.target.value);
@@ -16,7 +18,7 @@ export function ContentHeader() {
       onChange={handleSelect}
     >
       <h2 className="sm:text-lg md:text-2xl lg:text-3xl 2xl:text-4xl font-medium">
-        Nombre categoria
+        {category === 'all' ? 'Principal' : category}
       </h2>
       <select
         name="mainFilter"

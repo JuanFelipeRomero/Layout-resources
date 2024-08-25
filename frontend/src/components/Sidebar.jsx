@@ -1,11 +1,11 @@
 import './sideBar.css';
-import { Context } from '../../contexts/Categories';
+import { CategoriesContext } from '../../contexts/Categories';
 import { useContext } from 'react';
 import { useState } from 'react';
 
 export function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { setCategory } = useContext(Context);
+  const { setCategory } = useContext(CategoriesContext);
 
   const toggleMenu = () => {
     //Funcion para alternar el estado del menu
