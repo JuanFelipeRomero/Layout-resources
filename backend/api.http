@@ -7,17 +7,6 @@ GET http://localhost:1234/resources
 ### GET Colors resources
 GET http://localhost:1234/resources/?category=colores
 
-### POST New resource
-POST http://localhost:1234/resources
-Content-Type: application/json
-
-{
-   "name": "webGradients",
-   "description" : "Aqui puedes tomar una utilizar una gran variedad de gradiente, o crearlos tu mismo!",
-   "category": "gradientes",
-   "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFjiYSo0RsI5DMTu-OgKc0uYvBBhipio6Cuw&s",
-   "url": "https://webgradients.com/"
-}
 
 ### PATCH Update resource by id
 PATCH http://localhost:1234/resources/66c129fa222c34701b49c2c2
@@ -29,3 +18,18 @@ Content-Type: application/json
 
 ### DELETE resource by id
 DELETE http://localhost:1234/resources/66c17b64c795338804c3f91d
+
+
+### POST New resource
+POST http://localhost:1234/resources
+Content-Type: application/json
+
+{
+  "name": "Figma",
+  "description": "Plataforma colaborativa para diseñar interfaces web.",
+  "category": "varios",
+  "image": "https://cdn.sanity.io/images/599r6htc/regionalized/88fa2405b90b9012596616b2acf867ac1f2e16a9-1560x878.png?w=1560&h=878&q=75&fit=max&auto=format",
+  "url": "https://www.figma.com"
+}
+
+
