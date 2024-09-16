@@ -16,7 +16,6 @@ const cors = require('cors');
 
 const ACCEPTED_ORIGINS = [
   'https://layout-resources.vercel.app',
-  'https://layout-resources.vercel.app/',
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:1234',
@@ -26,15 +25,19 @@ const ACCEPTED_ORIGINS = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Si el origen no está presente (por ejemplo, en una herramienta como Postman), o está en la lista de orígenes aceptados, permitir la solicitud
       if (!origin || ACCEPTED_ORIGINS.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'], // Agrega 'OPTIONS' aquí
+    allowedHeaders: ['Content-Type', 'Authorization'], // Permite los encabezados que puedas necesitar
   })
 );
+
+// Maneja las solicitudes OPTIONS automáticamente
+app.options('*', cors());
 
 connectDatabase();
 
