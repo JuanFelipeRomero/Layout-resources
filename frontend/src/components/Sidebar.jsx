@@ -70,9 +70,6 @@ export function SideBar() {
             </ul>
           )}
         </li>
-        <li>
-          <button className="categoryTitle">Favoritos</button>
-        </li>
       </ul>
     </nav>
   );
