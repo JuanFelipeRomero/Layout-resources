@@ -20,6 +20,7 @@ const ACCEPTED_ORIGINS = [
   'http://localhost:3000',
   'https://layout-resources-frontend.vercel.app',
   'https://layout-resources-frontend.vercel.app/',
+  'https://layout-resources-frontend-ldr089jb5.vercel.app/',
 ];
 
 app.use((req, res, next) => {
