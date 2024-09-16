@@ -4,8 +4,9 @@ import { useEffect } from 'react';
 import { CategoriesContext } from '../../contexts/Categories';
 import { FiltersContext } from '../../contexts/Filters';
 import { SearchContext } from '../../contexts/Search';
-
 import { useContext } from 'react';
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export function ContentGrid() {
   const [resources, setResources] = useState([]);
@@ -17,7 +18,7 @@ export function ContentGrid() {
     const fetchResources = async () => {
       try {
         const response = await fetch(
-          `http://localhost:1234/resources/?category=${category}`
+          `${API_URL}/resources/?category=${category}`
         );
         const responseJson = await response.json();
 

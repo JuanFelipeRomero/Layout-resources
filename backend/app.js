@@ -12,12 +12,24 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.disable('x-powered-by');
+
 const ACCEPTED_ORIGINS = [
   'http://localhost:5173',
+  'http://localhost:5174',
   'http://localhost:1234',
   'http://localhost:3000',
-  'https://layres.com',
+  'https://layout-resources-frontend.vercel.app/',
 ];
+
+app.use((req, res, next) => {
+  const origin = req.header('origin');
+  if (ACCEPTED_ORIGINS.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 connectDatabase();
 

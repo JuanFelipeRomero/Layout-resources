@@ -1,8 +1,8 @@
 ###Basic
-GET http://localhost:1234
+GET https://layout-resources-api.onrender.com
 
 ### GET All resources
-GET http://localhost:1234/resources
+GET https://layout-resources-api.onrender.com/resources
 
 ### GET Colors resources
 GET http://localhost:1234/resources/?category=colores
