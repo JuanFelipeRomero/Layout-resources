@@ -65,34 +65,3 @@ ResourceSchema.set('toJSON', {
 const Resource = model('Resource', ResourceSchema);
 
 module.exports = Resource;
-
-/*
-const resource = new Resource({
-  name: 'Coolors',
-  description: 'Pagina que genera paletas de colores',
-  category: 'colores',
-  image: 'https://www.evernote.design/assets/images/coolors.jpg',
-  url: 'https://coolors.co/',
-});
-*/
-
-//Guardar datos en un modelo
-/*
-resource
-  .save()
-  .then((result) => {
-    console.log(result);
-    mongoose.connection.close();
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-*/
-/*
-
-//Buscar datos de un modelo
-Resource.find({}).then((result) => {
-  console.log(result);
-  mongoose.connection.close();
-});
-*/
