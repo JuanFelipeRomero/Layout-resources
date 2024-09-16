@@ -20,6 +20,7 @@ export function ContentGrid() {
         const response = await fetch(
           `${API_URL}/resources/?category=${category}`
         );
+
         const responseJson = await response.json();
 
         let filteredResources = responseJson;
