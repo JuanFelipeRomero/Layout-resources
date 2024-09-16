@@ -42,10 +42,11 @@ app.get('/', (req, res) => {
 //GET ----------------------------------------------------------------------
 app.get('/resources', (req, res) => {
   // Ejemplo /resources/?category=colores
+  /*
   const origin = req.header('origin'); //recuperar el dominio origen
   if (ACCEPTED_ORIGINS.includes(origin)) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  }
+  }*/
 
   let category = req.query.category;
   console.log(category);
