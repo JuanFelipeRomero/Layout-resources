@@ -5,39 +5,34 @@ const Resource = require('./models/Resource'); //Model
 
 //varios
 const validateResource = require('./schemes/resourcesSh');
-
+const cors = require('cors');
 const express = require('express');
 
 const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 app.disable('x-powered-by');
-const cors = require('cors');
 
-const ACCEPTED_ORIGINS = [
+// Configurar CORS para permitir sólo los dominios de producción y local
+const allowedOrigins = [
   'https://layout-resources.vercel.app',
   'http://localhost:5173',
-  'http://localhost:5174',
-  'http://localhost:1234',
-  'http://localhost:3000',
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || ACCEPTED_ORIGINS.includes(origin)) {
+    origin: function (origin, callback) {
+      // Permitir solicitudes sin origen (como en Postman o cURL) o los orígenes en la lista permitida
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error('Not allowed by CORS'));
+        callback(new Error('No permitido por CORS'));
       }
     },
-    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'], // Agrega 'OPTIONS' aquí
-    allowedHeaders: ['Content-Type', 'Authorization'], // Permite los encabezados que puedas necesitar
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
   })
 );
-
-// Maneja las solicitudes OPTIONS automáticamente
-app.options('*', cors());
 
 connectDatabase();
 
